@@ -172,28 +172,38 @@ $(".voirFichierTxt").on("click", function () {
         return;
     }
 
-    $.getJSON(`http://localhost/Gestion_Vente/php/gestion/facture.php?action=generateTxt&id_facture=${id_facture}`, function (data) {
-        if (data.success) {
-            alert(`Fichier généré avec succès : ${data.file}`);
+    // Générer le fichier TXT via PHP
+    $.getJSON(`http://localhost/Gestion_Vente/php/gestion/facture.php?action=generateTxt&id_facture=${encodeURIComponent(id_facture)}`)
+        .done(function (data) {
+            console.log("Réponse du serveur :", data);
 
-            $.ajax({
-                url: data.file,
-                type: "HEAD",
-                success: function () {
-                    window.open(data.file, "_blank");
-                },
-                error: function () {
-                    alert("Le fichier n'existe pas ou est inaccessible !");
-                }
-            });
-        } else {
-            alert("Erreur lors de la génération du fichier.");
-        }
-    }).fail(function (error) {
-        console.error("Erreur AJAX :", error);
-        alert("Une erreur réseau est survenue.");
-    });
+            if (data.success && data.file) {
+                alert(`Fichier généré avec succès : ${data.file}`);
+                verifierEtOuvrirFichier(data.file);
+            } else {
+                alert("Erreur lors de la génération du fichier.");
+            }
+        })
+        .fail(function (xhr, status, error) {
+            console.error("Erreur AJAX :", error);
+            alert("Une erreur réseau est survenue.");
+        });
 });
+
+// Vérifier l'existence du fichier avant de l'ouvrir
+function verifierEtOuvrirFichier(filePath) {
+    $.ajax({
+        url: filePath,
+        type: "HEAD",
+        success: function () {
+            window.open(filePath, "_blank");
+        },
+        error: function () {
+            alert("Le fichier n'existe pas ou est inaccessible !");
+        }
+    });
+}
+
 
 function telechargerFacture() {
     let id_facture = $("#id_facture_selected").val();

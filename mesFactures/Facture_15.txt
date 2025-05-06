@@ -1,0 +1,28 @@
+===== FACTURE N 15 =====
+
+Date Facturation : 2025-05-06
+
+Informations Client
+Nom : Jean Rakoto
+CIN : 121234567890
+Telephone : 0321234567
+Email : jean.rakoto@example.com
+
+Informations Employe
+Nom : Jean Rakoto
+Telephone : 0321234567
+Email : jean.rakoto@example.com
+
+Mode de Paiement : Especes
+Montant Total : 7500.00 Euro
+Etat Facture : En attente
+
+ACHATS
+-------------------------------------
+ID Vehicule : 1
+Categorie : Moto
+Marque : Yamaha
+Modele : MT-07
+Quantite(s) : 1
+Prix Total : 7500.00 Euro
+-------------------------------------

@@ -53,25 +53,31 @@ $(document).ready(function () {
 
     // Actions pour Valider
     $(".valider").on("click", function () {
-        let id_facture = $("#id_facture").val();
+        let id_client = $("#id_client").val();
+        let id_employe = $("#id_employe").val();
         let montant_total = $("#montant_total").val();
-
-        if (!id_facture || montant_total <= 0) {
-            alert("Impossible de créer une facture sans montant valide !");
+    
+        if (!id_client || !id_employe || montant_total <= 0) {
+            alert("Impossible de créer une facture sans données valides !");
             return;
         }
-
+    
+        // Envoi de la requête AJAX à facture.php
         $.ajax({
             url: "http://localhost/Gestion_Vente/php/gestion/facture.php?action=create",
             method: "POST",
             contentType: "application/json",
             data: JSON.stringify({
-                id_facture: id_facture,
+                id_client: id_client,
+                id_employe: id_employe,
                 montant_total: montant_total
             }),
             success: function (data) {
+                console.log("Réponse du serveur :", data); // Afficher la réponse JSON pour le débogage
+    
                 if (data.success) {
-                    alert("Facture créée avec succès !");
+                    alert(`Facture créée avec succès ! ID Facture : ${data.id_facture}`);
+                    $("#id_facture").val(data.id_facture); // Met à jour l'ID facture dans le formulaire
                     fetchAchats();
                     cacherTfoot();
                 } else {
@@ -84,6 +90,7 @@ $(document).ready(function () {
             }
         });
     });
+    
 
     // Action pour Annuler
     $(".annuler").on("click", function () {

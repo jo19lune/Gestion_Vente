@@ -15,20 +15,29 @@ $action = $_GET['action'] ?? '';
 if ($action === 'create' && $_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = json_decode(file_get_contents('php://input'), true);
 
-    if (!$data || empty($data['id_facture']) || empty($data['montant_total'])) {
+    // Vérification des données envoyées
+    if (!$data || empty($data['montant_total']) || empty($data['id_client']) || empty($data['id_employe'])) {
         echo json_encode(["error" => "Données invalides"]);
         exit;
     }
 
     try {
-        $stmt = $pdo->prepare("INSERT INTO FACTURE (montant_total, date_facturation) VALUES (?, NOW())");
-        $stmt->execute([$data['montant_total']]);
+        // Préparer et exécuter la requête
+        $stmt = $pdo->prepare("
+            INSERT INTO FACTURE (id_client, id_employe, montant_total, date_facturation, mode_paiement) 
+            VALUES (?, ?, ?, NOW(), 'Especes')
+        ");
+        $stmt->execute([$data['id_client'], $data['id_employe'], $data['montant_total']]);
 
-        echo json_encode(["success" => true]);
+        // Récupérer l'ID de la facture nouvellement créée
+        $id_facture = $pdo->lastInsertId();
+
+        echo json_encode(["success" => true, "id_facture" => $id_facture]);
     } catch (PDOException $e) {
         echo json_encode(["error" => "Erreur lors de la création de la facture : " . $e->getMessage()]);
     }
 }
+
 
 if ($action === 'getDetails') {
     $id_facture = $_GET['id_facture'] ?? 0;
