@@ -11,8 +11,8 @@
 - **Gestion des véhicules** : CRUD, catégorisation et suivi des stocks.
 
 ## Technologies utilisées
-- **Back-end** : PHP (avec MySQL pour la base de données), JavaScript (Ajax).
-- **Front-end** : HTML, CSS, JavaScript (jQuery).
+- **Back-end** : PHP (avec MySQL géré via PDO pour des requêtes sécurisées), JavaScript (communication asynchrone avec le serveur via AJAX).
+- **Front-end** : HTML, CSS, JavaScript (avec jQuery pour simplifier les interactions DOM et les requêtes AJAX).
 - **Base de données** : MySQL (WampServer).
 - **Outils de développement** : Git & GitHub.
 
