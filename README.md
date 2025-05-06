@@ -13,7 +13,7 @@
 ## Technologies utilisées
 - **Back-end** : PHP (avec MySQL géré via PDO pour des requêtes sécurisées), JavaScript (communication asynchrone avec le serveur via AJAX).
 - **Front-end** : HTML, CSS, JavaScript (avec jQuery pour simplifier les interactions DOM et les requêtes AJAX).
-- **Base de données** : MySQL (WampServer).
+- **Base de données** : MySQL (hébergé sur WampServer pour le développement local).
 - **Outils de développement** : Git & GitHub.
 
 ## Installation
