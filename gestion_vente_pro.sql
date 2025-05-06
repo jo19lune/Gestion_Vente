@@ -60,14 +60,7 @@ INSERT INTO `achat` (`id_vente`, `date_vente`, `id_client`, `id_employe`, `id_ve
 (7, '2025-04-26', 7, 7, 17, 7, 2, 10400.00),
 (8, '2025-04-27', 8, 8, 19, 8, 1, 3200.00),
 (9, '2025-04-28', 9, 9, 8, 9, 2, 13500.00),
-(10, '2025-04-29', 10, 10, 15, 10, 1, 9900.00),
-(75, '2025-05-06', 1, 1, 5, 11, 1, 17900.00),
-(74, '2025-05-06', 1, 1, 6, 11, 1, 20500.00),
-(73, '2025-05-06', 1, 1, 2, 11, 1, 6500.00),
-(72, '2025-05-06', 1, 1, 6, 11, 1, 20500.00),
-(76, '2025-05-06', 1, 1, 4, 11, 1, 8500.00),
-(77, '2025-05-06', 1, 1, 4, 12, 1, 8500.00),
-(78, '2025-05-06', 1, 1, 4, 13, 1, 8500.00);
+(10, '2025-04-29', 10, 10, 15, 10, 1, 9900.00);
 
 -- --------------------------------------------------------
 
@@ -102,8 +95,7 @@ INSERT INTO `client` (`id_client`, `nom_client`, `prenom_client`, `cin_client`, 
 (7, 'Rakotonirina', 'David', '721234567890', 'Ampasimbe, Toamasina', '0334567890', 'david.rakotonirina@example.com'),
 (8, 'Raharinirina', 'Claire', '821234567890', 'Andranomena, Toliara', '0343456789', 'claire.raharinirina@example.com'),
 (9, 'Randrianasolo', 'Lucas', '921234567890', 'Besarety, Antananarivo', '0371234567', 'lucas.randrianasolo@example.com'),
-(10, 'Raharisoa', 'Emma', '102123456789', 'Mahamanina, Mahajanga', '0382345678', 'emma.raharisoa@example.com'),
-(11, 'RAVELOMANANTSOA', 'Joachim Loïck', '122121212122', 'Mananjary', '0325255146', 'joachimloick939@gmail.com');
+(10, 'Raharisoa', 'Emma', '102123456789', 'Mahamanina, Mahajanga', '0382345678', 'emma.raharisoa@example.com');
 
 -- --------------------------------------------------------
 
