@@ -95,7 +95,9 @@ INSERT INTO `client` (`id_client`, `nom_client`, `prenom_client`, `cin_client`, 
 (7, 'Rakotonirina', 'David', '721234567890', 'Ampasimbe, Toamasina', '0334567890', 'david.rakotonirina@example.com'),
 (8, 'Raharinirina', 'Claire', '821234567890', 'Andranomena, Toliara', '0343456789', 'claire.raharinirina@example.com'),
 (9, 'Randrianasolo', 'Lucas', '921234567890', 'Besarety, Antananarivo', '0371234567', 'lucas.randrianasolo@example.com'),
-(10, 'Raharisoa', 'Emma', '102123456789', 'Mahamanina, Mahajanga', '0382345678', 'emma.raharisoa@example.com');
+(10, 'Raharisoa', 'Emma', '102123456789', 'Mahamanina, Mahajanga', '0382345678', 'emma.raharisoa@example.com'),
+(11, 'RAVELOMANANTSOA', 'Joachim Loïck', '122121212122', 'Mananjary', '0325255146', 'joachimloick939@gmail.com');
+
 -- --------------------------------------------------------
 
 --
