@@ -33,13 +33,13 @@
 
     <section class="info-section">
         <h2>Pourquoi choisir Gestion Vente ?</h2>
+        <p>Gestion Vente est une solution complète et intuitive pour répondre à vos besoins de gestion. Voici ce que nous offrons :</p>
         <ul>
-            <li>Gestion des achats : CRUD, facturation, gestion des stocks.</li>
-            <li>Gestion des clients : CRUD.</li>
-            <li>Facturation : Génération automatique des factures, création d'un fichier TXT, téléchargement du fichier.</li>
-            <li>Gestion des employés : CRUD.</li>
-            <li>Gestion des véhicules : CRUD, catégorisation et suivi des stocks.</li>
-        </ul>
+            <li><strong>Gestion des achats :</strong> Effectuez des opérations CRUD, gérez les stocks et générez des factures facilement.</li>
+            <li><strong>Gestion des clients :</strong> Simplifiez la gestion de vos clients grâce à des fonctionnalités CRUD performantes.</li>
+            <li><strong>Facturation :</strong> Automatisez la génération des factures, créez des fichiers TXT et téléchargez-les en un clic.</li>
+            <li><strong>Gestion des employés :</strong> Organisez vos ressources humaines avec des outils CRUD efficaces.</li>
+            <li><strong>Gestion des véhicules :</strong> Catégorisez, suivez les stocks et gérez vos véhicules avec précision.</li>
         </ul>
     </section>
 
