@@ -26,3 +26,31 @@ Modele : C 400 X
 Quantite(s) : 2
 Prix Total : 10400.00 Euro
 -------------------------------------
+===== FACTURE N 7 =====
+
+Date Facturation : 2025-04-26
+
+Informations Client
+Nom : David Rakotonirina
+CIN : 721234567890
+Telephone : 0334567890
+Email : david.rakotonirina@example.com
+
+Informations Employe
+Nom : David Rakotonirina
+Telephone : 0334567890
+Email : david.rakotonirina@example.com
+
+Mode de Paiement : Carte bancaire
+Montant Total : 10400.00 Euro
+Etat Facture : PAYEE
+
+ACHATS
+-------------------------------------
+ID Vehicule : 17
+Categorie : Scooter
+Marque : BMW
+Modele : C 400 X
+Quantite(s) : 2
+Prix Total : 10400.00 Euro
+-------------------------------------
