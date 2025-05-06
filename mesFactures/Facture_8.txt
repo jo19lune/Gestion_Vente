@@ -1,0 +1,28 @@
+===== FACTURE N 8 =====
+
+Date Facturation : 2025-04-27
+
+Informations Client
+Nom : Claire Raharinirina
+CIN : 821234567890
+Telephone : 0343456789
+Email : claire.raharinirina@example.com
+
+Informations Employe
+Nom : Claire Raharinirina
+Telephone : 0343456789
+Email : claire.raharinirina@example.com
+
+Mode de Paiement : Especes
+Montant Total : 3200.00 Euro
+Etat Facture : PAYEE
+
+ACHATS
+-------------------------------------
+ID Vehicule : 19
+Categorie : Scooter
+Marque : Niu
+Modele : NQi GT
+Quantite(s) : 1
+Prix Total : 3200.00 Euro
+-------------------------------------
