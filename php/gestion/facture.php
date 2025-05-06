@@ -21,8 +21,8 @@ if ($action === 'create' && $_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     try {
-        $stmt = $pdo->prepare("INSERT INTO FACTURE (id_facture, montant_total, date_facture) VALUES (?, ?, NOW())");
-        $stmt->execute([$data['id_facture'], $data['montant_total']]);
+        $stmt = $pdo->prepare("INSERT INTO FACTURE (montant_total, date_facturation) VALUES (?, NOW())");
+        $stmt->execute([$data['montant_total']]);
 
         echo json_encode(["success" => true]);
     } catch (PDOException $e) {
