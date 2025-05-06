@@ -34,10 +34,12 @@
     <section class="info-section">
         <h2>Pourquoi choisir Gestion Vente ?</h2>
         <ul>
-            <li>Gestion complète des ventes et transactions</li>
-            <li>Suivi détaillé des achats et des clients</li>
-            <li>Interface simple et intuitive</li>
-            <li>Sécurisation des données avec un accès rapide</li>
+            <li>Gestion des achats : CRUD, facturation, gestion des stocks.</li>
+            <li>Gestion des clients : CRUD.</li>
+            <li>Facturation : Génération automatique des factures, création d'un fichier TXT, téléchargement du fichier.</li>
+            <li>Gestion des employés : CRUD.</li>
+            <li>Gestion des véhicules : CRUD, catégorisation et suivi des stocks.</li>
+        </ul>
         </ul>
     </section>
 
