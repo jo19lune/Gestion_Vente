@@ -408,11 +408,11 @@ $("#addAchatForm").on("submit", function () {
     setTimeout(calculerMontantTotal, 1000); // calcul après 1 seconde
 });
 
-// Mettre à jour le montant total aussi après validation ou annulation
+// mise à jours du montant total
 $(".valider").on("click", calculerMontantTotal);
 $(".annuler").on("click", calculerMontantTotal);
 
-// Recherche d'une vente
+// Recherche
 function searchAchats() {
     let input = $("#searchAchatInput").val().toLowerCase();
     let rows = $("#achatsTable tr");
@@ -451,133 +451,3 @@ function chargerLesAchats() {
         fetchAchatsParFacture();
     }
 }
-
-
-/*
-
-document.addEventListener("DOMContentLoaded", function () {
-    console.log("achat.js est chargé !");
-    getLastFactureId(); // Récupérer l'ID de la dernière facture au chargement
-    fetchAchats();
-
-    // Ajout d'une vente
-    let addForm = document.getElementById("addAchatForm");
-    if (addForm) {
-        addForm.addEventListener("submit", function (event) {
-            event.preventDefault();
-
-            if (confirm("Voulez-vous vraiment ajouter cette vente ? Vérifiez les informations avant validation.")) {
-                let formData = {
-                    id_client: document.getElementById("id_client").value,
-                    id_employe: document.getElementById("id_employe").value,
-                    id_facture: document.getElementById("id_facture").value,
-                    id_vehicule: document.getElementById("id_vehicule").value,
-                    quantite: document.getElementById("quantite").value,
-                    date_vente: document.getElementById("date_vente").value,
-                    prix_total: document.getElementById("prix_total").value
-                };
-
-                if (Object.values(formData).some(val => val === "")) {
-                    alert("Veuillez remplir tous les champs obligatoires.");
-                    return;
-                }
-
-                fetch("http://localhost/Gestion_Vente/php/gestion/achat.php?action=create", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(formData)
-                }).then(response => response.json()).then(data => {
-                    if (data.success) {
-                        fetchAchats();
-                        document.getElementById("addAchatForm").reset();
-                        alert("Vente ajoutée avec succès !");
-                    } else {
-                        alert("Erreur lors de l'ajout.");
-                    }
-                }).catch(error => console.error("Erreur AJAX :", error));
-            }
-        });
-    }
-
-    // Modification d'une vente
-    let updateForm = document.getElementById("updateAchatForm");
-    if (updateForm) {
-        updateForm.addEventListener("submit", function (event) {
-            event.preventDefault();
-
-            if (confirm("Voulez-vous vraiment modifier cette vente ? Vérifiez les informations avant validation.")) {
-                let formData = {
-                    id_vente: document.getElementById("id_vente_update").value,
-                    id_client: document.getElementById("id_client_update").value,
-                    id_employe: document.getElementById("id_employe_update").value,
-                    id_facture: document.getElementById("id_facture_update").value,
-                    id_vehicule: document.getElementById("id_vehicule_update").value,
-                    quantite: document.getElementById("quantite_update").value,
-                    date_vente: document.getElementById("date_vente_update").value,
-                    prix_total: document.getElementById("prix_total_update").value
-                };
-
-                if (Object.values(formData).some(val => val === "")) {
-                    alert("Veuillez remplir tous les champs obligatoires.");
-                    return;
-                }
-
-                fetch("http://localhost/Gestion_Vente/php/gestion/achat.php?action=update", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(formData)
-                }).then(response => response.json()).then(data => {
-                    if (data.success) {
-                        fetchAchats();
-                        document.getElementById("updateAchatForm").reset();
-                        alert("Vente modifiée avec succès !");
-                    } else {
-                        alert("Erreur lors de la modification.");
-                    }
-                }).catch(error => console.error("Erreur AJAX :", error));
-            }
-        });
-    }
-});
-
-// Fonction pour récupérer et afficher les ventes
-function fetchAchats() {
-    fetch("http://localhost/Gestion_Vente/php/gestion/achat.php?action=read")
-        .then(response => response.json())
-        .then(ventes => {
-            console.log("Données reçues :", ventes);
-            let tableBody = document.getElementById("achatsTable");
-            if (!tableBody) return;
-
-            tableBody.innerHTML = "";
-
-            if (!ventes || ventes.length === 0) {
-                tableBody.innerHTML = "<tr><td colspan='12'>Aucune vente trouvée</td></tr>";
-                return;
-            }
-
-            ventes.forEach(v => {
-                tableBody.innerHTML += `
-                    <tr>
-                        <td>${v.id_vente}</td>
-                        <td>${v.id_client}</td>
-                        <td>${v.id_employe}</td>
-                        <td>${v.id_facture}</td>
-                        <td>${v.id_vehicule}</td>
-                        <td>${v.date_vente}</td>
-                        <td>${v.categorie}</td>
-                        <td>${v.marque}</td>
-                        <td>${v.model}</td>
-                        <td>${v.quantite}</td>
-                        <td>${v.prix_total} €</td>
-                        <td>
-                            <button class="update" onclick="fillUpdateForm(${v.id_vente}, ${v.id_client}, ${v.id_employe}, ${v.id_facture}, ${v.id_vehicule}, ${v.quantite}, '${v.date_vente}', ${v.prix_total})">Modifier</button>
-                            <button class="delete" onclick="deleteAchat(${v.id_vente})">Supprimer</button>
-                        </td>
-                    </tr>
-                `;
-            });
-        })
-        .catch(error => console.error("Erreur AJAX :", error));
-}
-*/
