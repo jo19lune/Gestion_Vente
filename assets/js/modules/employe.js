@@ -1,70 +1,74 @@
-document.addEventListener("DOMContentLoaded", function () {
+$(document).ready(function () {
     console.log("employe.js est chargé !");
     fetchEmployes();
 
     // Ajout d'un employé
-    document.getElementById("addEmployeForm").addEventListener("submit", function (event) {
+    $("#addEmployeForm").on("submit", function (event) {
         event.preventDefault();
 
         if (confirm("Voulez-vous vraiment ajouter cet employé ? Vérifiez les informations avant validation.")) {
             let formData = {
-                nom_employe: document.getElementById("nom_employe").value,
-                prenom_employe: document.getElementById("prenom_employe").value,
-                cin_employe: document.getElementById("cin_employe").value,
-                adresse_employe: document.getElementById("adresse_employe").value,
-                telephone_employe: document.getElementById("telephone_employe").value,
-                email_employe: document.getElementById("email_employe").value,
-                mot_de_passe: document.getElementById("mot_de_passe").value,
-                poste_employe: document.getElementById("poste_employe").value,
-                salaire: document.getElementById("salaire").value,
-                date_embauche: document.getElementById("date_embauche").value
+                nom_employe: $("#nom_employe").val(),
+                prenom_employe: $("#prenom_employe").val(),
+                cin_employe: $("#cin_employe").val(),
+                adresse_employe: $("#adresse_employe").val(),
+                telephone_employe: $("#telephone_employe").val(),
+                email_employe: $("#email_employe").val(),
+                mot_de_passe: $("#mot_de_passe").val(),
+                poste_employe: $("#poste_employe").val(),
+                salaire: $("#salaire").val(),
+                date_embauche: $("#date_embauche").val()
             };
 
-            fetch("http://localhost/Gestion_Vente/php/gestion/employe.php?action=create", {
+            $.ajax({
+                url: "http://localhost/Gestion_Vente/php/gestion/employe.php?action=create",
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(formData)
-            }).then(response => response.json()).then(data => {
-                if (data.success) {
-                    fetchEmployes();
-                    document.getElementById("addEmployeForm").reset();
-                    alert("Employé ajouté avec succès !");
-                } else {
-                    alert("Erreur lors de l'ajout.");
+                contentType: "application/json",
+                data: JSON.stringify(formData),
+                success: function (data) {
+                    if (data.success) {
+                        fetchEmployes();
+                        $("#addEmployeForm")[0].reset();
+                        alert("Employé ajouté avec succès !");
+                    } else {
+                        alert("Erreur lors de l'ajout.");
+                    }
                 }
             });
         }
     });
 
     // Modification d'un employé
-    document.getElementById("updateEmployeForm").addEventListener("submit", function (event) {
+    $("#updateEmployeForm").on("submit", function (event) {
         event.preventDefault();
 
         if (confirm("Voulez-vous vraiment modifier cet employé ? Vérifiez les informations avant validation.")) {
             let formData = {
-                id_employe: document.getElementById("id_employe_update").value,
-                nom_employe: document.getElementById("nom_update").value,
-                prenom_employe: document.getElementById("prenom_update").value,
-                cin_employe: document.getElementById("cin_update").value,
-                adresse_employe: document.getElementById("adresse_update").value,
-                telephone_employe: document.getElementById("telephone_update").value,
-                email_employe: document.getElementById("email_update").value,
-                poste_employe: document.getElementById("poste_update").value,
-                salaire: document.getElementById("salaire_update").value,
-                date_embauche: document.getElementById("date_embauche_update").value
+                id_employe: $("#id_employe_update").val(),
+                nom_employe: $("#nom_update").val(),
+                prenom_employe: $("#prenom_update").val(),
+                cin_employe: $("#cin_update").val(),
+                adresse_employe: $("#adresse_update").val(),
+                telephone_employe: $("#telephone_update").val(),
+                email_employe: $("#email_update").val(),
+                poste_employe: $("#poste_update").val(),
+                salaire: $("#salaire_update").val(),
+                date_embauche: $("#date_embauche_update").val()
             };
 
-            fetch("http://localhost/Gestion_Vente/php/gestion/employe.php?action=update", {
+            $.ajax({
+                url: "http://localhost/Gestion_Vente/php/gestion/employe.php?action=update",
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(formData)
-            }).then(response => response.json()).then(data => {
-                if (data.success) {
-                    fetchEmployes();
-                    document.getElementById("updateEmployeForm").reset();
-                    alert("Employé modifié avec succès !");
-                } else {
-                    alert("Erreur lors de la modification.");
+                contentType: "application/json",
+                data: JSON.stringify(formData),
+                success: function (data) {
+                    if (data.success) {
+                        fetchEmployes();
+                        $("#updateEmployeForm")[0].reset();
+                        alert("Employé modifié avec succès !");
+                    } else {
+                        alert("Erreur lors de la modification.");
+                    }
                 }
             });
         }
@@ -73,20 +77,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Fonction pour récupérer et afficher les employés
 function fetchEmployes() {
-    fetch("http://localhost/Gestion_Vente/php/gestion/employe.php?action=read")
-        .then(response => response.json())
-        .then(employes => {
+    $.ajax({
+        url: "http://localhost/Gestion_Vente/php/gestion/employe.php?action=read",
+        method: "GET",
+        success: function (employes) {
             console.log("Données reçues :", employes);
-            let tableBody = document.getElementById("employesTable");
-            tableBody.innerHTML = "";
+            let tableBody = $("#employesTable");
+            tableBody.empty();
 
             if (!employes || employes.length === 0) {
-                tableBody.innerHTML = "<tr><td colspan='12'>Aucun employé trouvé</td></tr>";
+                tableBody.html("<tr><td colspan='12'>Aucun employé trouvé</td></tr>");
                 return;
             }
 
             employes.forEach(e => {
-                tableBody.innerHTML += `
+                tableBody.append(`
                     <tr>
                         <td>${e.id_employe}</td>
                         <td>${e.nom_employe}</td>
@@ -103,52 +108,57 @@ function fetchEmployes() {
                             <button class="update" onclick="fillUpdateForm(${e.id_employe}, '${e.nom_employe}', '${e.prenom_employe}', '${e.cin_employe}', '${e.adresse_employe}', '${e.telephone_employe}', '${e.email_employe}', '${e.poste_employe}', ${e.salaire}, '${e.date_embauche}')">Modifier</button>
                         </td>
                     </tr>
-                `;
+                `);
             });
-        })
-        .catch(error => console.error("Erreur AJAX :", error));
+        },
+        error: function (error) {
+            console.error("Erreur AJAX :", error);
+        }
+    });
 }
 
 // Fonction pour supprimer un employé avec confirmation
 function deleteEmploye(id) {
     if (confirm("Êtes-vous sûr de vouloir supprimer cet employé ? Cette action est irréversible.")) {
-        fetch(`http://localhost/Gestion_Vente/php/gestion/employe.php?action=delete&id=${id}`)
-            .then(response => response.json())
-            .then(data => {
+        $.ajax({
+            url: `http://localhost/Gestion_Vente/php/gestion/employe.php?action=delete&id=${id}`,
+            method: "GET",
+            success: function (data) {
                 if (data.success) {
                     fetchEmployes();
                     alert("Employé supprimé avec succès !");
                 } else {
                     alert("Erreur lors de la suppression.");
                 }
-            });
+            }
+        });
     }
 }
 
 // Fonction pour remplir le formulaire de modification et faire défiler
 function fillUpdateForm(id, nom, prenom, cin, adresse, telephone, email, poste, salaire, date_embauche) {
-    document.getElementById("id_employe_update").value = id;
-    document.getElementById("nom_update").value = nom;
-    document.getElementById("prenom_update").value = prenom;
-    document.getElementById("cin_update").value = cin;
-    document.getElementById("adresse_update").value = adresse;
-    document.getElementById("telephone_update").value = telephone;
-    document.getElementById("email_update").value = email;
-    document.getElementById("poste_update").value = poste;
-    document.getElementById("salaire_update").value = salaire;
-    document.getElementById("date_embauche_update").value = date_embauche;
+    $("#id_employe_update").val(id);
+    $("#nom_update").val(nom);
+    $("#prenom_update").val(prenom);
+    $("#cin_update").val(cin);
+    $("#adresse_update").val(adresse);
+    $("#telephone_update").val(telephone);
+    $("#email_update").val(email);
+    $("#poste_update").val(poste);
+    $("#salaire_update").val(salaire);
+    $("#date_embauche_update").val(date_embauche);
 
     // défiler vers le formulaire de mise à jour
-    document.getElementById("updateEmployeForm").scrollIntoView({ behavior: "smooth", block: "start" });
+    $("html, body").animate({
+        scrollTop: $("#updateEmployeForm").offset().top
+    }, "smooth");
 }
 
 // Fonction pour rechercher des employés
 function searchEmployes() {
-    let input = document.getElementById("searchInput").value.trim().toLowerCase();
-    let rows = document.querySelectorAll("#employesTable tr");
-
-    rows.forEach(row => {
-        let matchFound = Array.from(row.cells).slice(0, -1).some(cell => cell.textContent.trim().toLowerCase().includes(input));
-        row.style.display = matchFound ? "" : "none";
+    let input = $("#searchInput").val().trim().toLowerCase();
+    $("#employesTable tr").each(function () {
+        let matchFound = $(this).find("td").slice(0, -1).toArray().some(cell => $(cell).text().trim().toLowerCase().includes(input));
+        $(this).toggle(matchFound);
     });
 }
