@@ -1,0 +1,28 @@
+===== FACTURE N 10 =====
+
+Date Facturation : 2025-04-29
+
+Informations Client
+Nom : Emma Raharisoa
+CIN : 102123456789
+Telephone : 0382345678
+Email : emma.raharisoa@example.com
+
+Informations Employe
+Nom : Emma Raharisoa
+Telephone : 0382345678
+Email : emma.raharisoa@example.com
+
+Mode de Paiement : Carte bancaire
+Montant Total : 6800.00 Euro
+Etat Facture : PAYEE
+
+ACHATS
+-------------------------------------
+ID Vehicule : 15
+Categorie : Scooter
+Marque : Suzuki
+Modele : Burgman 650
+Quantite(s) : 1
+Prix Total : 9900.00 Euro
+-------------------------------------

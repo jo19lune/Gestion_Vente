@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Clients</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    
+    <!-- Ajout d'une meilleure prise en charge de l'encodage et du responsive design 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Interface de gestion des clients pour une meilleure organisation et suivi.">
+    <meta name="keywords" content="gestion, clients, entreprise, suivi">
+    <meta name="author" content="Ton Nom ou Entreprise">
+    -->
+</head>
+
+<body>
+
+    <h2>Rechercher un client</h2>
+<input type="text" id="searchClientInput" class="search" placeholder="Rechercher" onkeyup="searchClients()">
+
+    <h2>Liste des Clients</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>CIN n°</th>
+                <th>Adresse</th>
+                <th>Téléphone</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="clientsTable">
+            <!-- Les clients seront affichés ici dynamiquement -->
+        </tbody>
+    </table>
+
+    <h2>Ajouter un client</h2>
+    <form id="addClientForm">
+        <input type="text" id="nom_client" placeholder="Nom" required>
+        <input type="text" id="prenom_client" placeholder="Prénom" required>
+        <input type="number" id="cin_client" placeholder="CIN" required>
+        <input type="text" id="adresse_client" placeholder="Adresse" required>
+        <input type="text" id="telephone_client" placeholder="Téléphone">
+        <input type="email" id="email_client" placeholder="Email" required>
+        
+        <button type="submit" class="add">Ajouter</button>
+    </form>
+
+    <h2>Modifier un client</h2>
+    <form id="updateClientForm">
+        <input type="number" id="id_client_update" placeholder="ID du client" required>
+        <input type="text" id="nom_update" placeholder="Nom" required>
+        <input type="text" id="prenom_update" placeholder="Prénom" required>
+        <input type="number" id="cin_update" placeholder="CIN" required>
+        <input type="text" id="adresse_update" placeholder="Adresse" required>
+        <input type="text" id="telephone_update" placeholder="Téléphone">
+        <input type="email" id="email_update" placeholder="Email" required>
+        
+        <button type="submit" class="update">Modifier</button>
+    </form>
+
+    <script src="../assets/js/modules/client.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+===== FACTURE N 3 =====
+
+Date Facturation : 2025-04-21
+
+Informations Client
+Nom : Thomas Andrianina
+CIN : 321234567890
+Telephone : 0346789123
+Email : thomas.andrianina@example.com
+
+Informations Employe
+Nom : Claire Raharinirina
+Telephone : 0343456789
+Email : claire.raharinirina@example.com
+
+Mode de Paiement : Especes
+Montant Total : 7200.00 Euro
+Etat Facture : PAYEE
+
+ACHATS
+-------------------------------------
+ID Vehicule : 7
+Categorie : Moto
+Marque : KTM
+Modele : Duke 390
+Quantite(s) : 1
+Prix Total : 7200.00 Euro
+-------------------------------------
+===== FACTURE N 3 =====
+
+Date Facturation : 2025-04-21
+
+Informations Client
+Nom : Thomas Andrianina
+CIN : 321234567890
+Telephone : 0346789123
+Email : thomas.andrianina@example.com
+
+Informations Employe
+Nom : Claire Raharinirina
+Telephone : 0343456789
+Email : claire.raharinirina@example.com
+
+Mode de Paiement : Especes
+Montant Total : 7200.00 Euro
+Etat Facture : PAYEE
+
+ACHATS
+-------------------------------------
+ID Vehicule : 7
+Categorie : Moto
+Marque : KTM
+Modele : Duke 390
+Quantite(s) : 1
+Prix Total : 7200.00 Euro
+-------------------------------------

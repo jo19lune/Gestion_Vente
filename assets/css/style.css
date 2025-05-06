@@ -1,0 +1,269 @@
+/* Styles généraux */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: var(--soft-beige);
+    color: var(--dark-gray);
+}
+
+/* HEADER */
+header {
+    width: 100%;
+    padding: 15px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--black);
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.logo img {
+    height: 50px;
+}
+
+/* NAVIGATION */
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black);
+    padding: 15px;
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 12px 18px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+nav ul li a:hover {
+    background-color: var(--primary-blue);
+    transform: scale(1.05);
+}
+
+/* Responsive Navigation */
+@media screen and (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+
+    nav ul li a {
+        width: 100%;
+        display: block;
+    }
+}
+
+/* TITRES */
+h2 {
+    color: var(--deep-blue);
+}
+
+/* BAR DE RECHERCHE */
+.search {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px solid var(--primary-blue);
+    border-radius: 5px;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+}
+
+.search:focus {
+    background-color: var(--gold-yellow);
+    border-color: var(--complementary-orange);
+}
+
+/* TABLEAU DES ACHATS */
+table {
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+table th, table td {
+    padding: 14px;
+    border: 1px solid var(--steel-gray);
+    text-align: left;
+}
+
+table th {
+    background-color: var(--primary-blue);
+    color: white;
+    font-weight: bold;
+}
+
+table tr:hover {
+    background-color: var(--soft-beige);
+    cursor: pointer;
+}
+
+/* Responsive Table */
+@media screen and (max-width: 768px) {
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    table th, table td {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    table th, table td {
+        padding: 8px;
+        font-size: 12px;
+    }
+}
+
+/* FORMULAIRES */
+form {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid var(--steel-gray);
+    border-radius: 6px;
+    width: 220px;
+}
+
+/* Désactiver ID Facture */
+#id_facture {
+    background-color: var(--soft-beige);
+    cursor: not-allowed;
+}
+
+/* BOUTONS */
+button {
+    cursor: pointer;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+button.add {
+    background-color: var(--complementary-orange);
+}
+
+button.add:hover {
+    background-color: var(--warm-red);
+}
+
+button.update {
+    background-color: var(--primary-blue);
+}
+
+button.update:hover {
+    background-color: var(--deep-blue);
+}
+
+button.delete {
+    background-color: var(--warm-red);
+}
+
+button.delete:hover {
+    background-color: var(--black);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    color: white;
+    background-color: var(--black);
+    padding: 20px 0;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Liens */
+.footer-links a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 10px;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-links a:hover {
+    color: var(--gold-yellow);
+}
+
+/* Icônes sociales */
+.social-icons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.social-icons a img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.social-icons a img:hover {
+    transform: scale(1.2);
+}
+
+.social-icons a:hover span {
+    color: var(--primary-blue);
+}
+

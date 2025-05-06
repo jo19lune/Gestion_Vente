@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Véhicules</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+
+    <h2>Rechercher un véhicule</h2>
+    <input type="text" id="searchVehiculeInput" class="search" placeholder="Rechercher" onkeyup="searchVehicules()">
+
+    <h2>Liste des Véhicules</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Marque</th>
+                <th>Modèle</th>
+                <th>Cylindrée</th>
+                <th>Moteur</th>
+                <th>Catégorie</th>
+                <th>Stock</th>
+                <th>Prix Unitaire (€)</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="vehiculesTable">
+            <!-- Les lignes du tableau seront ajoutées dynamiquement via JavaScript -->
+        </tbody>
+    </table>
+
+    <h2>Ajouter un véhicule</h2>
+    <form id="addVehiculeForm">
+        <input type="text" id="marque" placeholder="Marque" required>
+        <input type="text" id="modele" placeholder="Modèle" required>
+        <input type="number" id="cylindree" placeholder="Cylindrée" required>
+        <input type="text" id="moteur" placeholder="Moteur" required>
+        <input type="text" id="categorie" placeholder="Catégorie" required>
+        <input type="number" id="stock" placeholder="Stock" required>
+        <input type="number" step="0.01" id="prix_u" placeholder="Prix Unitaire (€)" required>
+        <button type="submit" class="add">Ajouter</button>
+    </form>
+
+    <h2>Modifier un véhicule</h2>
+    <form id="updateVehiculeForm">
+        <input type="number" id="id_vehicule_update" placeholder="ID du véhicule" required>
+        <input type="text" id="marque_update" placeholder="Marque" required>
+        <input type="text" id="modele_update" placeholder="Modèle" required>
+        <input type="number" id="cylindree_update" placeholder="Cylindrée" required>
+        <input type="text" id="moteur_update" placeholder="Moteur" required>
+        <input type="text" id="categorie_update" placeholder="Catégorie" required>
+        <input type="number" id="stock_update" placeholder="Stock" required>
+        <input type="number" step="0.01" id="prix_u_update" placeholder="Prix Unitaire (€)" required>
+        <button type="submit" class="update">Modifier</button>
+    </form>
+
+    <script src="../assets/js/modules/vehicule.js"></script>
+
+</body>
+</html>

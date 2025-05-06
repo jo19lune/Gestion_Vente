@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails de la Facture</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="http://localhost/Gestion_Vente/mesTables/base.php">
+                <img src="../icons/Logo.png" alt="Logo">
+            </a>
+        </div>
+        <nav class="navigation">
+            <ul>
+                <li><a href="http://localhost/Gestion_Vente/mesTables/page_achat.php">Achat</a></li>
+                <li><a href="http://localhost/Gestion_Vente/mesTables/page_client.php">Client</a></li>
+                <li><a href="http://localhost/Gestion_Vente/mesTables/page_employe.php">Employé</a></li>
+                <li><a href="http://localhost/Gestion_Vente/mesTables/page_facture.php">Facture</a></li>
+                <li><a href="http://localhost/Gestion_Vente/mesTables/page_vehicule.php">Véhicule</a></li>
+                <li><a href="http://localhost/Gestion_Vente/mesTables/page_historique_achat.php">Historique Achats</a></li>
+                <li><a href="http://localhost/Gestion_Vente/mesTables/page_suivi_client.php">Suivi Clients</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h2>Suivi des Achats du Client</h2>
+    <select id="clientSelection">
+        <!-- Liste des clients dynamiquement chargée -->
+    </select>
+    
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Date Facturation</th>
+                <th>Mode de Paiement</th>
+                <th>Montant Total</th>
+                <th>Marque</th>
+                <th>Modèle</th>
+                <th>Quantité</th>
+            </tr>
+        </thead>
+        <tbody id="historiqueAchats">
+            <!-- Les achats seront affichés ici dynamiquement -->
+        </tbody>
+    </table>
+    
+    <script>
+    document.getElementById("clientSelection").addEventListener("change", function() {
+        let id_client = this.value;
+        fetch(`http://localhost/Gestion_Vente/php/achat.php?action=getHistoriqueAchatsClient&id_client=${id_client}`)
+        .then(response => response.json())
+        .then(data => {
+            let rows = "";
+            data.historique.forEach(achat => {
+                rows += `<tr>
+                    <td>${achat.date_facturation}</td>
+                    <td>${achat.mode_paiement}</td>
+                    <td>${achat.montant_total} €</td>
+                    <td>${achat.marque}</td>
+                    <td>${achat.model}</td>
+                    <td>${achat.quantite}</td>
+                </tr>`;
+            });
+            document.getElementById("historiqueAchats").innerHTML = rows;
+        })
+        .catch(error => console.error("Erreur lors du chargement :", error));
+    });
+    </script>    
+
+    <footer>
+        <p>&copy; 2025 Mon Site Web. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

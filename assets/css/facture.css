@@ -1,0 +1,106 @@
+/* Sélecteur de facture */
+select {
+    width: 250px;
+    padding: 12px;
+    margin: 15px auto;
+    font-size: 16px;
+    border: 2px solid var(--primary-blue);
+    border-radius: 6px;
+    background-color: var(--soft-beige);
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+select:focus {
+    background-color: var(--gold-yellow);
+    border-color: var(--complementary-orange);
+}
+
+/* Style des tableaux de facture */
+table {
+    width: 95%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+table th, table td {
+    padding: 14px;
+    border: 1px solid var(--dark-gray);
+    text-align: left;
+}
+
+table th {
+    background-color: var(--primary-blue);
+    color: white;
+    font-weight: bold;
+}
+
+/* Effet sur les lignes du tableau */
+table tr:hover {
+    background-color: var(--soft-beige);
+    cursor: pointer;
+}
+
+/* Style du bouton de création et ouverture */
+.voirFichierTxt {
+    display: inline-block;
+    background-color: var(--primary-blue);
+    color: white;
+    padding: 12px 18px;
+    font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out, transform 0.1s ease-in-out;
+}
+
+.voirFichierTxt:hover {
+    background-color: var(--dark-gray);
+}
+
+.voirFichierTxt:active {
+    transform: scale(0.95);
+}
+
+/* Bouton de téléchargement de facture */
+button.download {
+    background-color: var(--complementary-orange);
+    color: white;
+    padding: 12px 18px;
+    font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button.download:hover {
+    background-color: var(--warm-red);
+}
+
+/* Bouton d’annulation de modification de facture */
+button.cancel {
+    background-color: var(--warm-red);
+    color: white;
+    padding: 12px 18px;
+    font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out, transform 0.1s ease-in-out;
+}
+
+button.cancel:hover {
+    background-color: var(--dark-gray);
+}
+
+button.cancel:active {
+    transform: scale(0.95);
+}

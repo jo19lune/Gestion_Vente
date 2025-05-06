@@ -1,0 +1,53 @@
+/* Recherche employé */
+#searchInput {
+    border: 2px solid var(--primary-blue);
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+}
+
+#searchInput:focus {
+    background-color: var(--gold-yellow);
+    border-color: var(--complementary-orange);
+}
+
+/* Tableau des employés */
+#employesTable thead {
+    background-color: var(--primary-blue);
+    color: white;
+    font-weight: bold;
+}
+
+#employesTable tbody tr:hover {
+    background-color: var(--soft-beige);
+    cursor: pointer;
+}
+
+/* Formulaires spécifiques */
+#addEmployeForm, #updateEmployeForm {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+#addEmployeForm input, #updateEmployeForm input {
+    padding: 10px;
+    border: 1px solid var(--dark-gray);
+    border-radius: 6px;
+    width: 220px;
+}
+
+/* Boutons spécifiques */
+button.add {
+    background-color: var(--complementary-orange);
+}
+
+button.update {
+    background-color: var(--warm-red);
+}
+
+button:hover {
+    opacity: 0.9;
+}

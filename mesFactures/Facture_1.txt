@@ -1,0 +1,84 @@
+===== FACTURE N 1 =====
+
+Date Facturation : 2025-04-20
+
+Informations Client
+Nom : Jean Rakoto
+CIN : 121234567890
+Telephone : 0321234567
+Email : jean.rakoto@example.com
+
+Informations Employe
+Nom : Alice Ravelo
+Telephone : 0327654321
+Email : alice.ravelo@example.com
+
+Mode de Paiement : Carte bancaire
+Montant Total : 8500.00 Euro
+Etat Facture : Payée
+
+ACHATS
+-------------------------------------
+ID Vehicule : 3
+Categorie : Moto
+Marque : Kawasaki
+Modele : Ninja 400
+Quantite(s) : 1
+Prix Total : 8500.00 Euro
+-------------------------------------
+===== FACTURE N 1 =====
+
+Date Facturation : 2025-04-20
+
+Informations Client
+Nom : Jean Rakoto
+CIN : 121234567890
+Telephone : 0321234567
+Email : jean.rakoto@example.com
+
+Informations Employe
+Nom : Alice Ravelo
+Telephone : 0327654321
+Email : alice.ravelo@example.com
+
+Mode de Paiement : Carte bancaire
+Montant Total : 8500.00 Euro
+Etat Facture : PAYEE
+
+ACHATS
+-------------------------------------
+ID Vehicule : 3
+Categorie : Moto
+Marque : Kawasaki
+Modele : Ninja 400
+Quantite(s) : 1
+Prix Total : 8500.00 Euro
+-------------------------------------
+===== FACTURE N 1 =====
+
+Date Facturation : 2025-04-20
+
+Informations Client
+Nom : Jean Rakoto
+CIN : 121234567890
+Telephone : 0321234567
+Email : jean.rakoto@example.com
+
+Informations Employe
+Nom : Alice Ravelo
+Telephone : 0327654321
+Email : alice.ravelo@example.com
+
+Mode de Paiement : Especes
+Montant Total : 8500.00 Euro
+Etat Facture : PAYEE
+
+ACHATS
+-------------------------------------
+ID Vehicule : 3
+Categorie : Moto
+Marque : Kawasaki
+Modele : Ninja 400
+Quantite(s) : 1
+Prix Total : 8500.00 Euro
+-------------------------------------

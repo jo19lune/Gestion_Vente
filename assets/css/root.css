@@ -1,0 +1,17 @@
+:root {
+    /* Couleurs principales */
+    --primary-blue: #007198; /* Bleu pétrole */
+    --complementary-orange: #FF6F32; /* Orange complémentaire */
+    --warm-red: #D94E26; /* Rouge brique */
+    --gold-yellow: #FFD166; /* Jaune doré */
+    
+    /* Couleurs neutres */
+    --soft-beige: #F4E2D8; /* Beige doux */
+    --dark-gray: #434343; /* Gris foncé */
+    --black: #000000; /* Noir profond */
+    
+    /* Couleurs supplémentaires pour contrastes */
+    --light-blue: #4DA8DA; /* Bleu clair */
+    --deep-blue: #005A79; /* Bleu profond */
+    --steel-gray: #A9B2B9; /* Gris acier */
+}

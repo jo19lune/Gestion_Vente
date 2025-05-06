@@ -1,0 +1,28 @@
+===== FACTURE N 6 =====
+
+Date Facturation : 2025-04-25
+
+Informations Client
+Nom : Alice Ravelo
+CIN : 621234567890
+Telephone : 0327654321
+Email : alice.ravelo@example.com
+
+Informations Employe
+Nom : Alice Ravelo
+Telephone : 0327654321
+Email : alice.ravelo@example.com
+
+Mode de Paiement : Carte bancaire
+Montant Total : 4600.00 Euro
+Etat Facture : EN ATTENTE
+
+ACHATS
+-------------------------------------
+ID Vehicule : 14
+Categorie : Scooter
+Marque : Kymco
+Modele : Xciting S 400i
+Quantite(s) : 1
+Prix Total : 4600.00 Euro
+-------------------------------------

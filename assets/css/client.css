@@ -1,0 +1,53 @@
+/* Recherche client */
+#searchClientInput {
+    border: 2px solid var(--primary-blue);
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+}
+
+#searchClientInput:focus {
+    background-color: var(--gold-yellow);
+    border-color: var(--complementary-orange);
+}
+
+/* Tableau des clients */
+#clientsTable thead {
+    background-color: var(--primary-blue);
+    color: white;
+    font-weight: bold;
+}
+
+#clientsTable tbody tr:hover {
+    background-color: var(--soft-beige);
+    cursor: pointer;
+}
+
+/* Formulaires spécifiques */
+#addClientForm, #updateClientForm {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+#addClientForm input, #updateClientForm input {
+    padding: 10px;
+    border: 1px solid var(--dark-gray);
+    border-radius: 6px;
+    width: 220px;
+}
+
+/* Boutons spécifiques */
+button.add {
+    background-color: var(--complementary-orange);
+}
+
+button.update {
+    background-color: var(--warm-red);
+}
+
+button:hover {
+    opacity: 0.9;
+}

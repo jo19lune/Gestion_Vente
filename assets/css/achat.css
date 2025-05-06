@@ -1,0 +1,11 @@
+.actionValide {
+    display: none;
+}
+
+button.valide {
+    background: green;
+}
+
+button.annuler {
+    background: var(--warm-red);
+}
