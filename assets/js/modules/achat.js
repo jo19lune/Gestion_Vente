@@ -1,9 +1,8 @@
 $(document).ready(function () {
     console.log("achat.js est chargé !");
-    getLastFactureId(); // Récupérer l'ID de la dernière facture au chargement
-    fetchAchats(); // Charger toutes les ventes au démarrage
+    getLastFactureId();
+    fetchAchats();
 
-    // Ajout d'une vente
     $("#addAchatForm").on("submit", function (event) {
         event.preventDefault();
 
@@ -32,9 +31,9 @@ $(document).ready(function () {
                     if (data.success) {
                         alert("Vente ajoutée avec succès !");
                         afficherTfoot();
-                        fetchAchatsParFacture(); // Charge uniquement les achats liés à cette facture
+                        fetchAchatsParFacture();
                         calculerPrixTotalUpdate();
-                        $("#id_facture").val(formData.id_facture); // Rétablir l’ID facture après l’ajout
+                        $("#id_facture").val(formData.id_facture);
                     } else {
                         alert("Erreur lors de l'ajout.");
                     }
@@ -46,12 +45,10 @@ $(document).ready(function () {
         }
     });
 
-    // Affichage et gestion du tfoot
     function afficherTfoot() {
-        $(".actionValide").show(); // Rendre visible seulement après un ajout
+        $(".actionValide").show();
     }
 
-    // Actions pour Valider
     $(".valider").on("click", function () {
         let id_client = $("#id_client").val();
         let id_employe = $("#id_employe").val();
@@ -61,8 +58,7 @@ $(document).ready(function () {
             alert("Impossible de créer une facture sans données valides !");
             return;
         }
-    
-        // Envoi de la requête AJAX à facture.php
+
         $.ajax({
             url: "http://localhost/Gestion_Vente/php/gestion/facture.php?action=create",
             method: "POST",
@@ -73,11 +69,11 @@ $(document).ready(function () {
                 montant_total: montant_total
             }),
             success: function (data) {
-                console.log("Réponse du serveur :", data); // Afficher la réponse JSON pour le débogage
+                console.log("Réponse du serveur :", data);
     
                 if (data.success) {
                     alert(`Facture créée avec succès ! ID Facture : ${data.id_facture}`);
-                    $("#id_facture").val(data.id_facture); // Met à jour l'ID facture dans le formulaire
+                    $("#id_facture").val(data.id_facture);
                     fetchAchats();
                     cacherTfoot();
                 } else {
@@ -90,9 +86,7 @@ $(document).ready(function () {
             }
         });
     });
-    
 
-    // Action pour Annuler
     $(".annuler").on("click", function () {
         let id_facture = $("#id_facture").val();
 
@@ -108,8 +102,8 @@ $(document).ready(function () {
                 success: function (data) {
                     if (data.success) {
                         alert("Toutes les ventes liées à cette facture ont été supprimées !");
-                        fetchAchats(); // Recharge toutes les ventes
-                        cacherTfoot(); // Masquer les boutons
+                        fetchAchats();
+                        cacherTfoot();
                     } else {
                         alert("Erreur lors de la suppression des ventes.");
                     }
@@ -122,12 +116,10 @@ $(document).ready(function () {
         }
     });
 
-    // Cacher les boutons valider et annuler
     function cacherTfoot() {
-        $(".actionValide").hide(); // Cacher après validation ou annulation
+        $(".actionValide").hide();
     }
 
-    // Modification d'une vente
     $("#updateAchatForm").on("submit", function (event) {
         event.preventDefault();
 
@@ -171,7 +163,6 @@ $(document).ready(function () {
     });
 });
 
-// Fonction pour récupérer et afficher toutes les ventes
 function fetchAchats() {
     $.ajax({
         url: "http://localhost/Gestion_Vente/php/gestion/achat.php?action=read",
@@ -217,11 +208,10 @@ function fetchAchats() {
     });
 }
 
-// Fonction pour récupérer et afficher les ventes par facture en cours
 function fetchAchatsParFacture() {
-    let id_facture = $("#id_facture").val(); // Récupérer l'ID facture actuel
+    let id_facture = $("#id_facture").val();
     
-    if (!id_facture) return; // Si aucun ID facture n'est défini, ne pas afficher les données
+    if (!id_facture) return;
 
     $.ajax({
         url: `http://localhost/Gestion_Vente/php/gestion/achat.php?action=read&facture_id=${id_facture}`,
@@ -266,7 +256,6 @@ function fetchAchatsParFacture() {
     });
 }
 
-// Fonction pour remplir le formulaire de modification
 function fillUpdateForm(id_vente, id_client, id_employe, id_facture, id_vehicule, quantite, date_vente, prix_total) {
     console.log("Valeurs reçues pour modification :", id_vente, id_employe, id_facture, prix_total);
 
@@ -282,7 +271,6 @@ function fillUpdateForm(id_vente, id_client, id_employe, id_facture, id_vehicule
     $("html, body").animate({ scrollTop: $("#updateAchatForm").offset().top }, "smooth");
 }
 
-// Fonction pour supprimer une vente avec jQuery
 function deleteAchat(id_vente) {
     if (confirm("Voulez-vous vraiment supprimer cette vente ? Cette action est irréversible.")) {
         $.ajax({
@@ -304,7 +292,6 @@ function deleteAchat(id_vente) {
     }
 }
 
-// Fonction pour récupérer l'ID de la dernière facture avec jQuery
 function getLastFactureId() {
     $.ajax({
         url: "http://localhost/Gestion_Vente/php/gestion/achat.php?action=getLastFacture",
@@ -320,11 +307,9 @@ function getLastFactureId() {
     });
 }
 
-
 $("#id_vehicule").on("change", calculerPrixTotal);
 $("#quantite").on("input", calculerPrixTotal);
 
-// Fonction pour calculer le prix total lors de l'ajout d'une vente
 function calculerPrixTotal() {
     let idVehicule = $("#id_vehicule").val();
     let quantite = $("#quantite").val();
@@ -351,7 +336,6 @@ function calculerPrixTotal() {
 $("#id_vehicule_update").on("change", calculerPrixTotalUpdate);
 $("#quantite_update").on("input", calculerPrixTotalUpdate);
 
-// Fonction pour calculer le prix total lors de la mise à jour d'une vente
 function calculerPrixTotalUpdate() {
     let idVehicule = $("#id_vehicule_update").val();
     let quantite = $("#quantite_update").val();
@@ -375,7 +359,6 @@ function calculerPrixTotalUpdate() {
     });
 }
 
-// Calcule le montant total d'une facture et met à jour le champ "montant_total".
 function calculerMontantTotal() {
     let id_facture = $("#id_facture").val();
 
@@ -410,16 +393,13 @@ function calculerMontantTotal() {
     });
 }
 
-// Appeler la fonction après chaque ajout d'achat
 $("#addAchatForm").on("submit", function () {
-    setTimeout(calculerMontantTotal, 1000); // calcul après 1 seconde
+    setTimeout(calculerMontantTotal, 1000);
 });
 
-// Mettre à jour le montant total aussi après validation ou annulation
 $(".valider").on("click", calculerMontantTotal);
 $(".annuler").on("click", calculerMontantTotal);
 
-// Recherche d'une vente
 function searchAchats() {
     let input = $("#searchAchatInput").val().toLowerCase();
     let rows = $("#achatsTable tr");
@@ -429,26 +409,24 @@ function searchAchats() {
         $(this).find("td").each(function () {
             if ($(this).text().toLowerCase().includes(input)) {
                 found = true;
-                return false; // Arrêter la boucle interne
+                return false; 
             }
         });
         $(this).toggle(found);
     });
 }
 
-// fonction pour afficher les vente lie a la facture actuelle apres modification ou suppression de vente
 function chargerLesAchats() {
-    let id_facture = $("#id_facture").val(); // Récupérer l'ID facture actuel
+    let id_facture = $("#id_facture").val();
 
-    // compare l'ID de la facture actuelle avec l'ID de la facture de la vente a modifiée ou supprimer
     let rows = $("#achatsTable tr");
     let factureExists = false;
 
     rows.each(function () {
-        let factureIdCell = $(this).find("td:nth-child(4)"); // Assuming the 4th column contains id_facture
+        let factureIdCell = $(this).find("td:nth-child(4)"); 
         if (factureIdCell.text() === id_facture) {
             factureExists = true;
-            return false; // Exit the loop early if a match is found
+            return false; 
         }
     });
 
