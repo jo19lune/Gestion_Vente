@@ -1,7 +1,10 @@
+//import Chart from "D:/JavaScript/node_modules/chart.js/auto";
+
 $(document).ready(function () {
     console.log("achat.js est chargé !");
     getLastFactureId();
     fetchAchats();
+    fetchVenteChartData(); // Récupération des données pour le graphique
 
     $("#addAchatForm").on("submit", function (event) {
         event.preventDefault();
@@ -34,6 +37,7 @@ $(document).ready(function () {
                         fetchAchatsParFacture();
                         calculerPrixTotalUpdate();
                         $("#id_facture").val(formData.id_facture);
+                        fetchVenteChartData(); // Mise à jour du graphique après ajout
                     } else {
                         alert("Erreur lors de l'ajout.");
                     }
@@ -42,18 +46,67 @@ $(document).ready(function () {
                     console.error("Erreur AJAX :", error);
                 }
             });
+
+            function afficherTfoot() {
+                $(".actionValide").show();
+            }
         }
     });
 
-    function afficherTfoot() {
-        $(".actionValide").show();
+    function fetchVenteChartData() {
+        $.ajax({
+            url: "http://localhost/Gestion_Vente/php/gestion/achat.php?action=getStats",
+            method: "GET",
+            success: function (data) {
+                if (data.success) {
+                    updateChart(data.labels, data.sales);
+                } else {
+                    console.error("Erreur lors de la récupération des données.");
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error("Erreur AJAX :", error);
+            }
+        });
+    }
+
+    function updateChart(labels, sales) {
+        const ctx = document.getElementById("venteChart").getContext("2d");
+        new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: "Ventes mensuelles",
+                    data: sales,
+                    backgroundColor: "rgba(75, 192, 192, 0.2)",
+                    borderColor: "rgba(75, 192, 192, 1)",
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: "Évolution des ventes par mois",
+                        font: {
+                            size: 18
+                        },
+                        color: "black"
+                    }
+                }
+            }
+        });
     }
 
     $(".valider").on("click", function () {
         let id_client = $("#id_client").val();
         let id_employe = $("#id_employe").val();
         let montant_total = $("#montant_total").val();
-    
+
+        console.log("click sur valider");
+
         if (!id_client || !id_employe || montant_total <= 0) {
             alert("Impossible de créer une facture sans données valides !");
             return;
@@ -63,6 +116,7 @@ $(document).ready(function () {
             url: "http://localhost/Gestion_Vente/php/gestion/facture.php?action=create",
             method: "POST",
             contentType: "application/json",
+
             data: JSON.stringify({
                 id_client: id_client,
                 id_employe: id_employe,
@@ -70,7 +124,7 @@ $(document).ready(function () {
             }),
             success: function (data) {
                 console.log("Réponse du serveur :", data);
-    
+
                 if (data.success) {
                     alert(`Facture créée avec succès ! ID Facture : ${data.id_facture}`);
                     $("#id_facture").val(data.id_facture);
@@ -85,6 +139,7 @@ $(document).ready(function () {
                 alert("Erreur AJAX : " + error);
             }
         });
+        })
     });
 
     $(".annuler").on("click", function () {
@@ -157,12 +212,12 @@ $(document).ready(function () {
                 error: function (xhr, status, error) {
                     console.error("Erreur AJAX :", error);
                     alert("Erreur AJAX lors de la modification : " + error);
+
                 }
             });
         }
     });
-});
-
+    
 function fetchAchats() {
     $.ajax({
         url: "http://localhost/Gestion_Vente/php/gestion/achat.php?action=read",

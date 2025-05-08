@@ -8,8 +8,9 @@
         <link rel="stylesheet" href="../assets/css/style.css">
         <link rel="stylesheet" href="../assets/css/achat.css">
 
-
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="../assets/js/core/jquery-3.7.1.min.js"></script>
+        <!-- <script src="file:///D:/JavaScript/node_modules/chart.js/auto"></script> -->
     </head>
     <body>
         <header>
@@ -106,10 +107,14 @@
                     <button type="submit" class="update">Modifier</button>
                 </form>
             </section>
+
+            <section>
+                <canvas id="venteChart"></canvas>
+            </section>
         </main>
 
+        <!-- <script type="module" src="../assets/js/modules/achat.js" defer></script> -->
         <script src="../assets/js/modules/achat.js" defer></script>
-
         <footer>
             <div class="footer-container">
                 <p>&copy; 2025 Mon Site Web. Tous droits réservés.</p>

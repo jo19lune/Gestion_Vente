@@ -145,4 +145,25 @@ if ($action === 'getMontantTotal') {
     }
 }
 
+if ($action === 'getStats') {
+    try {
+        $stmt = $pdo->query("
+            SELECT DATE_FORMAT(date_vente, '%Y-%m') AS mois, SUM(prix_total) AS total_ventes
+            FROM ACHAT
+            GROUP BY mois
+            ORDER BY mois
+        ");
+
+        $ventes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        
+        $labels = array_column($ventes, 'mois');
+        $sales = array_column($ventes, 'total_ventes');
+
+        echo json_encode(["success" => true, "labels" => $labels, "sales" => $sales]);
+    } catch (PDOException $e) {
+        echo json_encode(["error" => "Erreur lors de la récupération des données : " . $e->getMessage()]);
+    }
+}
+
+
 ?>
