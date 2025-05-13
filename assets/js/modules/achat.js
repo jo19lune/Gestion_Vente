@@ -1,4 +1,4 @@
-//import Chart from "D:/JavaScript/node_modules/chart.js/auto";
+//import Chart from "D:/JavaScript/node_modules/chart.js";
 
 $(document).ready(function () {
     console.log("achat.js est chargé !");

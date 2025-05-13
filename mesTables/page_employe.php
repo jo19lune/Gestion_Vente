@@ -98,7 +98,7 @@
                     <span>Facebook</span>
                 </a>
                 <a href="https://github.com/jo19lune" target="_blank">
-                    <img src="../icons/github_blancpng" alt="GitHub">
+                    <img src="../icons/github_blanc.png" alt="GitHub">
                     <span>GitHub</span>
                 </a>
                 <a href="https://wa.me/261325255146" target="_blank">

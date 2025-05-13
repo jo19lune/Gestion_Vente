@@ -1,0 +1,28 @@
+===== FACTURE N 18 =====
+
+Date Facturation : 2025-05-09
+
+Informations Client
+Nom : Emma Raharisoa
+CIN : 102123456789
+Telephone : 0382345678
+Email : emma.raharisoa@example.com
+
+Informations Employe
+Nom : Jean Rakoto
+Telephone : 0321234567
+Email : jean.rakoto@example.com
+
+Mode de Paiement : Especes
+Montant Total : 17900.00 Euro
+Etat Facture : PAYEE
+
+ACHATS
+-------------------------------------
+ID Vehicule : 5
+Categorie : Moto
+Marque : Ducati
+Modele : Panigale V2
+Quantite(s) : 1
+Prix Total : 17900.00 Euro
+-------------------------------------

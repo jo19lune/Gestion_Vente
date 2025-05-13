@@ -24,8 +24,8 @@ if ($action === 'create' && $_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
         // Préparer et exécuter la requête
         $stmt = $pdo->prepare("
-            INSERT INTO FACTURE (id_client, id_employe, montant_total, date_facturation, mode_paiement) 
-            VALUES (?, ?, ?, NOW(), 'Especes')
+            INSERT INTO FACTURE (id_client, id_employe, montant_total, date_facturation, mode_paiement, etat_facture) 
+            VALUES (?, ?, ?, NOW(), 'Especes', 'EN ATTENTE')
         ");
         $stmt->execute([$data['id_client'], $data['id_employe'], $data['montant_total']]);
 

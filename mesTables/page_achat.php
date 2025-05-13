@@ -10,7 +10,6 @@
 
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="../assets/js/core/jquery-3.7.1.min.js"></script>
-        <!-- <script src="file:///D:/JavaScript/node_modules/chart.js/auto"></script> -->
     </head>
     <body>
         <header>
