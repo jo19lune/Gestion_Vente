@@ -13,10 +13,10 @@ document.querySelector('.burger-menu').addEventListener('click', function() {
 
 function resizeCanvas() {
     const canvas = document.getElementById("venteChart");
-    canvas.width = window.innerWidth * 0.8; // 80% de la largeur de l'écran
-    canvas.height = canvas.width * 0.5; // Garde une bonne proportion
+    canvas.width = window.innerWidth * 0.8;
+    canvas.height = canvas.width * 0.5;
 }
 
 window.addEventListener("resize", resizeCanvas);
-resizeCanvas(); // Appel initial pour ajuster dès le chargement
+resizeCanvas();
 

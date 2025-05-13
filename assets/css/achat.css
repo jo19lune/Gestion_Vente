@@ -12,10 +12,10 @@ button.annuler {
 
 canvas {
     width: 100%;
-    max-width: 800px; /* Ajuste selon ton design */
+    max-width: 800px;
     height: auto;
-    display: block; /* Évite tout comportement inattendu */
-    margin: 0 auto; /* Centre l'élément */
+    display: block;
+    margin: 0 auto;
 }
 
 @media screen and (max-width: 768px) {
