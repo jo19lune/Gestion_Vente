@@ -12,28 +12,36 @@
     <script src="../assets/js/core/jquery-3.7.1.min.js"></script>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <a href="http://localhost/Gestion_Vente/mesTables/base.php"><img src="../icons/Logo.png" alt="Logo"></a>
-        </div>
-        <nav class="navigation">
-            <ul>
-                <li><a href="http://localhost/Gestion_Vente/mesTables/page_achat.php">Achat</a></li>
-                <li><a href="http://localhost/Gestion_Vente/mesTables/page_client.php">Client</a></li>
-                <li><a href="http://localhost/Gestion_Vente/mesTables/page_employe.php">Employé</a></li>
-                <li><a href="http://localhost/Gestion_Vente/mesTables/page_facture.php">Facture</a></li>
-                <li><a href="http://localhost/Gestion_Vente/mesTables/page_vehicule.php">Véhicule</a></li>
-            </ul>
-        </nav>
-    </header>
+        <header>
+            <div class="logo">
+                <a href="http://localhost/Gestion_Vente/mesTables/base.php">
+                    <img src="../icons/Logo.png" alt="Logo du site">
+                </a>
+            </div>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="page_achat.php">Achat</a></li>
+                    <li><a href="page_client.php">Client</a></li>
+                    <li><a href="page_employe.php">Employé</a></li>
+                    <li><a href="page_facture.php">Facture</a></li>
+                    <li><a href="page_statistique.php">Statistiques</a></li>
+                    <li><a href="page_vehicule.php">Véhicule</a></li>
+                </ul>
+            </nav>
+            <div class="burger-menu">
+                <img src="../icons/MenuLogo.png" alt="Menu Logo" srcset="">
+            </div>
+        </header>
 
-    <h2>Sélectionner une Facture</h2>
-    <select name="id_facture" id="id_facture_selected" class="id_facture_selected">
-        <!-- Les factures seront chargées dynamiquement ici -->
-    </select>
-
-    <button class="voirFichierTxt">Voir le fichier Txt</button>
-    <button class="download" onclick="telechargerFacture()">Télécharger la facture</button>
+        <section>
+            <h2>Sélectionner une Facture</h2>
+            <select name="id_facture" id="id_facture_selected" class="id_facture_selected">
+                <!-- Les factures seront chargées dynamiquement ici -->
+            </select>
+        
+            <button class="voirFichierTxt">Voir le fichier Txt</button>
+            <button class="download" onclick="telechargerFacture()">Télécharger la facture</button>
+        </section>
 
     
     <h2>Détails de la Facture</h2>
@@ -94,34 +102,39 @@
     </table>
 
     <h2>Listes des factures</h2>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>ID Facture</th>
-                <th>ID Client</th>
-                <th>ID Employe</th>
-                <th>Date</th>
-                <th>Mode de Payement</th>
-                <th>Montant Total</th>
-                <th>Etat</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody id="facturesTable"></tbody>
-    </table>
+    <div class="table-container">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID Facture</th>
+                    <th>ID Client</th>
+                    <th>ID Employe</th>
+                    <th>Date</th>
+                    <th>Mode de Payement</th>
+                    <th>Montant Total</th>
+                    <th>Etat</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="facturesTable"></tbody>
+        </table>
+    </div>
 
     <h2>Modifier une facture</h2>
-    <input type="number" id="id_facture_update" placeholder="ID Facture" require>
-    <input type="number" id= "id_client_update" placeholder="ID Client" require>
-    <input type="number" id="id_employe_update" placeholder="ID Employe" require>
-    <input type="date" id="date_update" placeholder="Date" require>
-    <select name="mode" id="mode_payement_update_selected" require></select>
-    <input type="number" id="montant_total" placeholder="Montant total" require readonly>
-    <select name="etat" id="etat_update_selected" require></select>
+    <section>
+        <input type="number" id="id_facture_update" placeholder="ID Facture" require>
+        <input type="number" id= "id_client_update" placeholder="ID Client" require>
+        <input type="number" id="id_employe_update" placeholder="ID Employe" require>
+        <input type="date" id="date_update" placeholder="Date" require>
+        <select name="mode" id="mode_payement_update_selected" require></select>
+        <input type="number" id="montant_total" placeholder="Montant total" require readonly>
+        <select name="etat" id="etat_update_selected" require></select>
 
-    <button class="update" onclick="">Modifier</button>
-    <button class="cancel">Annuler</button>
+        <button class="update" onclick="">Modifier</button>
+        <button class="cancel">Annuler</button>
+</section>
 
+    <script src="../assets/js/core/header.js"></script>  
     <script src="../assets/js/modules/facture.js"></script>
 
     <footer>

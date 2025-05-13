@@ -129,7 +129,7 @@ nav ul li a:hover {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
-    nav ul.show {
+    nav ul.active {
         display: flex;
     }
 
@@ -137,7 +137,6 @@ nav ul li a:hover {
         display: flex;
     }
 }
-
 
 /* TITRES */
 h2 {
@@ -190,8 +189,6 @@ table thead {
     background-color: var(--primary-blue);
     color: white;
 }
-
-
 
 /* TABLEAU DES ACHATS */
 table {
@@ -261,8 +258,6 @@ table tr:hover {
         min-width: 800px; /* Évite qu’ils soient trop compressés */
     }
 }
-
-
 
 /* FORMULAIRES */
 form {
@@ -346,7 +341,6 @@ button.delete:hover {
         font-size: 12px;
     }
 }
-
 
 /* Footer */
 footer {

@@ -11,44 +11,53 @@
     <script src="../assets/js/core/jquery-3.7.1.min.js"></script>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <a href="http://localhost/Gestion_Vente/mesTables/base.php"><img src="../icons/Logo.png" alt="Logo"></a>
-        </div>
-        <nav class="navigation">
-            <ul>
-                <li><a href="http://localhost/Gestion_Vente/mesTables/page_achat.php">Achat</a></li>
-                <li><a href="http://localhost/Gestion_Vente/mesTables/page_client.php">Client</a></li>
-                <li><a href="http://localhost/Gestion_Vente/mesTables/page_employe.php">Employé</a></li>
-                <li><a href="http://localhost/Gestion_Vente/mesTables/page_facture.php">Facture</a></li>
-                <li><a href="http://localhost/Gestion_Vente/mesTables/page_vehicule.php">Véhicule</a></li>
-            </ul>
-        </nav>
-    </header>
+        <header>
+            <div class="logo">
+                <a href="http://localhost/Gestion_Vente/mesTables/base.php">
+                    <img src="../icons/Logo.png" alt="Logo du site">
+                </a>
+            </div>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="page_achat.php">Achat</a></li>
+                    <li><a href="page_client.php">Client</a></li>
+                    <li><a href="page_employe.php">Employé</a></li>
+                    <li><a href="page_facture.php">Facture</a></li>
+                    <li><a href="page_statistique.php">Statistiques</a></li>
+                    <li><a href="page_vehicule.php">Véhicule</a></li>
+                </ul>
+            </nav>
+            <div class="burger-menu">
+                <img src="../icons/MenuLogo.png" alt="Menu Logo" srcset="">
+            </div>
+        </header>
 
-    
-    <h2>Rechercher un véhicule</h2>
-    <input type="text" id="searchVehiculeInput" class="search" placeholder="Rechercher" onkeyup="searchVehicules()">
+        <section>
+            <h2>Rechercher un véhicule</h2>
+            <input type="text" id="searchVehiculeInput" class="search" placeholder="Rechercher" onkeyup="searchVehicules()">
+        </section>
 
     <h2>Liste des Véhicules</h2>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Marque</th>
-                <th>Modèle</th>
-                <th>Cylindrée</th>
-                <th>Moteur</th>
-                <th>Catégorie</th>
-                <th>Stock</th>
-                <th>Prix Unitaire (€)</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody id="vehiculesTable">
-            <!-- Les lignes du tableau seront ajoutées dynamiquement via JavaScript -->
-        </tbody>
-    </table>
+    <div class="table-container">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Marque</th>
+                    <th>Modèle</th>
+                    <th>Cylindrée</th>
+                    <th>Moteur</th>
+                    <th>Catégorie</th>
+                    <th>Stock</th>
+                    <th>Prix Unitaire (€)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="vehiculesTable">
+                <!-- Les lignes du tableau seront ajoutées dynamiquement via JavaScript -->
+            </tbody>
+        </table>
+    </div>
 
     <h2>Ajouter un véhicule</h2>
     <form id="addVehiculeForm">
@@ -75,6 +84,7 @@
         <button type="submit" class="update">Modifier</button>
     </form>
 
+    <script src="../assets/js/core/header.js"></script>  
     <script src="../assets/js/modules/vehicule.js"></script>
 
     <footer>

@@ -1,22 +1,22 @@
-window.addEventListener('scroll', function() {
-    const header = document.querySelector('header');
-    if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
+document.addEventListener("DOMContentLoaded", function() {
+    const burgerMenu = document.querySelector(".burger-menu");
+    const navMenu = document.querySelector("ul");
+
+    burgerMenu.addEventListener("click", function() {
+        navMenu.classList.toggle("active");
+    });
+
+    function resizeCanvas() {
+        const canvas = document.getElementById("statsChart");
+
+        if (!canvas) {
+            console.error("Erreur : 'statsChart' introuvable !");
+            return;
+        }
+
+        canvas.width = 800;
+        canvas.height = 400;
     }
+
+    resizeCanvas(); // Exécute au chargement
 });
-
-document.querySelector('.burger-menu').addEventListener('click', function() {
-    document.querySelector('nav ul').classList.toggle('show');
-});
-
-function resizeCanvas() {
-    const canvas = document.getElementById("venteChart");
-    canvas.width = window.innerWidth * 0.8;
-    canvas.height = canvas.width * 0.5;
-}
-
-window.addEventListener("resize", resizeCanvas);
-resizeCanvas();
-

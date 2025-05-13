@@ -24,6 +24,7 @@
                     <li><a href="page_client.php">Client</a></li>
                     <li><a href="page_employe.php">Employé</a></li>
                     <li><a href="page_facture.php">Facture</a></li>
+                    <li><a href="page_statistique.php">Statistiques</a></li>
                     <li><a href="page_vehicule.php">Véhicule</a></li>
                 </ul>
             </nav>
@@ -109,8 +110,8 @@
             </section>
         </main>
 
+        <script src="../assets/js/core/header.js"></script>  
         <script src="../assets/js/modules/achat.js" defer></script>
-        <script src="../assets/js/core/header.js" defer></script>
         <footer>
             <div class="footer-container">
                 <p>&copy; 2025 Mon Site Web. Tous droits réservés.</p>
