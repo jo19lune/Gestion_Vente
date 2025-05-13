@@ -132,7 +132,7 @@
 
         <button class="update" onclick="">Modifier</button>
         <button class="cancel">Annuler</button>
-</section>
+    </section>
 
     <script src="../assets/js/core/header.js"></script>  
     <script src="../assets/js/modules/facture.js"></script>
