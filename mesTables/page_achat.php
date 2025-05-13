@@ -27,6 +27,9 @@
                     <li><a href="page_vehicule.php">Véhicule</a></li>
                 </ul>
             </nav>
+            <div class="burger-menu">
+                <img src="../icons/MenuLogo.png" alt="Menu Logo" srcset="">
+            </div>
         </header>
 
         <main>
@@ -37,46 +40,40 @@
 
             <section>
                 <h2>Liste des Ventes</h2>
-                <table border="1">
-                    <thead>
-                        <tr>
-                            <th>ID Vente</th>
-                            <th>ID Client</th>
-                            <th>ID Employé</th>
-                            <th>ID Facture</th>
-                            <th>ID Véhicule</th>
-                            <th>Date Vente</th>
-                            <th>Catégorie</th>
-                            <th>Marque</th>
-                            <th>Modèle</th>
-                            <th>Quantité</th>
-                            <th>Prix Total</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody id="achatsTable">
-                        <!-- Les ventes -->
-                    </tbody>
-                    <tfoot class="actionValide">
-                        <tr>
-                            <td colspan="2"><p>Montant Total :</p></td>
-                            <td colspan="4"><input type="number" id="montant_total" placeholder="Montant Total" readonly></td>
-                            <td colspan="6">
-                                <button id="btnValider" class="valider">Valider</button>
-                                <button id="btnAnnuler" class="annuler">Annuler</button>
-                                <style>
-                                    .valider{
-                                        background: green;
-                                    }
-                                    .annuler {
-                                        background: var(--warm-red);
-                                    }
-                                </style>
-                            </td>
-                        </tr>
-                    </tfoot>
-                </table>
-            </section>
+                <div class="table-container">
+                    <table border="1">
+                        <thead>
+                            <tr>
+                                <th>ID Vente</th>
+                                <th>ID Client</th>
+                                <th>ID Employé</th>
+                                <th>ID Facture</th>
+                                <th>ID Véhicule</th>
+                                <th>Date Vente</th>
+                                <th>Catégorie</th>
+                                <th>Marque</th>
+                                <th>Modèle</th>
+                                <th>Quantité</th>
+                                <th>Prix Total</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="achatsTable">
+                            <!-- Les ventes -->
+                        </tbody>
+                        <tfoot class="actionValide">
+                            <tr>
+                                <td colspan="2"><p>Montant Total :</p></td>
+                                <td colspan="4"><input type="number" id="montant_total" placeholder="Montant Total" readonly></td>
+                                <td colspan="6">
+                                    <button id="btnValider" class="valider">Valider</button>
+                                    <button id="btnAnnuler" class="annuler">Annuler</button>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </section>
+            </div>
 
             <section>
                 <h2>Ajouter une vente</h2>
@@ -112,8 +109,8 @@
             </section>
         </main>
 
-        <!-- <script type="module" src="../assets/js/modules/achat.js" defer></script> -->
         <script src="../assets/js/modules/achat.js" defer></script>
+        <script src="../assets/js/core/header.js" defer></script>
         <footer>
             <div class="footer-container">
                 <p>&copy; 2025 Mon Site Web. Tous droits réservés.</p>

@@ -2,10 +2,25 @@
     display: none;
 }
 
-button.valide {
+button.valider {
     background: green;
 }
 
 button.annuler {
-    background: var(--warm-red);
+    background: red;
+}
+
+canvas {
+    width: 100%;
+    max-width: 800px; /* Ajuste selon ton design */
+    height: auto;
+    display: block; /* Évite tout comportement inattendu */
+    margin: 0 auto; /* Centre l'élément */
+}
+
+@media screen and (max-width: 768px) {
+    canvas {
+        max-width: 100%;
+        height: auto;
+    }
 }
