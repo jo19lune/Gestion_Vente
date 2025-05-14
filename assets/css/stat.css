@@ -7,6 +7,13 @@
     padding: 20px;
 }
 
+/* Box */
+.box {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
 /* Boîtes individuelles des graphiques */
 .chart-box {
     width: 45%;

@@ -37,7 +37,7 @@
             <div class="chart-container">
                 <div class="box">
                     <div class="chart-box-title">
-                        <h3>📊 Ventes mensuelles</h3>
+                        <h3>Ventes mensuelles</h3>
                     </div>
                     <div class="chart-box" id="statsChart-container">
                         <canvas id="statsChart"></canvas>
@@ -45,7 +45,7 @@
                 </div>
                 <div class="box">
                     <div class="chart-box-title">
-                        <h3>👥 Clients inscrits</h3>
+                        <h3>Clients inscrits</h3>
                     </div>
                     <div class="chart-box" id="clientsChart-container">
                         <canvas id="clientsChart"></canvas>
@@ -53,7 +53,7 @@
                 </div>
                 <div class="box">
                     <div class="chart-box-title">
-                        <h3>🚗 Stock et ventes de véhicules</h3>
+                        <h3>Stock et ventes de véhicules</h3>
                     </div>
                     <div class="chart-box" id="vehiculesChart-container">
                         <canvas id="vehiculesChart"></canvas>
@@ -61,7 +61,7 @@
                 </div>
                 <div class="box">
                     <div class="chart-box-title">
-                        <h3>💼 Performances des employés</h3>
+                        <h3>Performances des employés</h3>
                     </div>
                     <div class="chart-box" id="employesChart-container">
                         <canvas id="employesChart"></canvas>
