@@ -79,10 +79,10 @@
             <section>
                 <h2>Ajouter une vente</h2>
                 <form id="addAchatForm" class="achat-form">
-                    <input type="number" id="id_client" placeholder="ID Client" required>
-                    <input type="number" id="id_employe" placeholder="ID Employé" required>
-                    <input type="number" id="id_facture" placeholder="ID Facture" required readonly>
-                    <input type="number" id="id_vehicule" placeholder="ID Véhicule" required>
+                    <input type="number" id="id_client" placeholder="ID Client" required min="1">
+                    <input type="number" id="id_employe" placeholder="ID Employé" required min="1">
+                    <input type="number" id="id_facture" placeholder="ID Facture" required readonly min="1">
+                    <input type="number" id="id_vehicule" placeholder="ID Véhicule" required min="1">
                     <input type="number" id="quantite" placeholder="Quantité" required min="1">
                     <input type="date" id="date_vente" required>
                     <input type="number" id="prix_total" placeholder="Prix Total" required min="0" step="0.01" readonly>
@@ -93,11 +93,11 @@
             <section>
                 <h2>Modifier une vente</h2>
                 <form id="updateAchatForm" class="achat-form">
-                    <input type="number" id="id_vente_update" placeholder="ID Vente" required>
-                    <input type="number" id="id_client_update" placeholder="ID Client" required>
-                    <input type="number" id="id_employe_update" placeholder="ID Employé" required>
-                    <input type="number" id="id_facture_update" placeholder="ID Facture" required>
-                    <input type="number" id="id_vehicule_update" placeholder="ID Véhicule" required>
+                    <input type="number" id="id_vente_update" placeholder="ID Vente" required min="1">
+                    <input type="number" id="id_client_update" placeholder="ID Client" required min="1">
+                    <input type="number" id="id_employe_update" placeholder="ID Employé" required min="1">
+                    <input type="number" id="id_facture_update" placeholder="ID Facture" required min="1">
+                    <input type="number" id="id_vehicule_update" placeholder="ID Véhicule" required min="1">
                     <input type="number" id="quantite_update" placeholder="Quantité" required min="1">
                     <input type="date" id="date_vente_update" required>
                     <input type="number" id="prix_total_update" placeholder="Prix Total" required min="0" step="0.01">
